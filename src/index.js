@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const multer = require("multer");
-const { sendTestEmail } = require("./controllers/emailController");
+const { sendEmailController } = require("./controllers/emailController");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
@@ -23,7 +23,7 @@ app.post("/send-email", upload.single("pdfFile"), async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
 
-    await sendTestEmail(req, res);
+    await sendEmailController(req, res);
   } catch (error) {
     console.error("Error handling the request:", error);
     return res.status(500).json({ error: "Internal server error" });
@@ -32,5 +32,5 @@ app.post("/send-email", upload.single("pdfFile"), async (req, res) => {
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on port ${port}`);
 });

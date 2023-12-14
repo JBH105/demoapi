@@ -27,7 +27,7 @@ const sendEmail = async (emailData) => {
       html: text,
       attachments: [
         {
-          filename: "document.pdf",
+          filename: "paystub.pdf",
           content: attachment,
           encoding: "binary",
           ...(emailData.originalname && { filename: emailData.originalname }),

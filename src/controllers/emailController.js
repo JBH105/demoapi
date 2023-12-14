@@ -1,7 +1,7 @@
 const { sendEmail } = require("../services/emailService");
 const fs = require("fs");
 
-const sendTestEmail = async (req, res) => {
+const sendEmailController = async (req, res) => {
   try {
     const { to, subject, text } = req.body;
     const pdfFile = req.file;
@@ -27,4 +27,4 @@ const sendTestEmail = async (req, res) => {
   }
 };
 
-module.exports = { sendTestEmail };
+module.exports = { sendEmailController };
